@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 // ANGULAR MATERIAL
@@ -20,6 +19,9 @@ import { MatSelectModule } from '@angular/material/select';
 // PIPE
 import { SearchPipe } from '../core/pipes/search.pipe';
 
+// NGX CHART MODULE
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @NgModule({
   declarations: [DashboardComponent, SearchPipe],
   imports: [
@@ -33,7 +35,8 @@ import { SearchPipe } from '../core/pipes/search.pipe';
     MatSelectModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgxChartsModule
   ]
 })
 export class DashboardModule { }

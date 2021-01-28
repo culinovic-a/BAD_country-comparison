@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public leastPopulatedCountry: any;
   public differenceOfPopulation: number;
   public searchText: '';
+  public newArr = [];
 
   constructor(private apiService: ApiService) { }
 
@@ -56,11 +57,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
     // DIFFERENCE
     this.differenceOfPopulation = this.populationDifference(this.mostPopulatedCountry.population, this.leastPopulatedCountry.population);
 
+    this.getNewArr();
   }
 
   // GET THE DIFFERENCE OF POPULATION
   populationDifference(max, min) {
     return max - min;
+  }
+
+  // REPLACING OBJECT POPULATION KEY WITH VALUE KEY IN ORDER TO SEND VALID DATA TO NGX CHART
+  getNewArr() {
+    this.selectedOptions.map(elem => this.newArr.push({ name: elem.name, value: elem.population }));
   }
 
   // OBSERVABLE UNSUBSCRIPTION

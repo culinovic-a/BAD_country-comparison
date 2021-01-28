@@ -34,3 +34,11 @@
     <button mat-raised-button color="primary" (click)="compareCountries()">Compare</button>
   </div>
 </div>
+
+<div class="dashboard">
+  <div class="chart" *ngIf="isSelected">
+    <ngx-charts-bar-vertical [view]=" [1000,400]" [results]="newArr" [xAxisLabel]="'Count'" [legend]="true"
+      [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
+    </ngx-charts-bar-vertical>
+  </div>
+</div>
