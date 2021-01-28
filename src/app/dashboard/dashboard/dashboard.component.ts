@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   public mostPopulatedCountry: any;
   public leastPopulatedCountry: any;
   public differenceOfPopulation: number;
+  public searchText: '';
 
   constructor(private apiService: ApiService) { }
 

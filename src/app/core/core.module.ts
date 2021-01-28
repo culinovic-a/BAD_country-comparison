@@ -5,14 +5,11 @@ import { LayoutComponent } from './layout/layout.component';
 // ROUTING
 import { CoreRoutingModule } from './core-routing.module';
 
-// PIPE
-import { SearchPipe } from './pipes/search.pipe';
-
 // ANGULAR MATERIAL
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-  declarations: [LayoutComponent, SearchPipe],
+  declarations: [LayoutComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,

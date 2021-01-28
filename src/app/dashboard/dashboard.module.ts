@@ -9,15 +9,19 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 // ANGULAR MATERIAL
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 // SCROLLING MODULE
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 
+// PIPE
+import { SearchPipe } from '../core/pipes/search.pipe';
+
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, SearchPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -27,7 +31,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCheckboxModule,
     MatListModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class DashboardModule { }
