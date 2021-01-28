@@ -8,6 +8,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 // ANGULAR MATERIAL
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+
 
 // SCROLLING MODULE
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -24,7 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
     ScrollingModule,
     MatCheckboxModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule
   ]
 })
 export class DashboardModule { }

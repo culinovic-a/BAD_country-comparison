@@ -1,10 +1,27 @@
-<mat-selection-list #countriesList [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
-  <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 400px; width: 400px;">
-    <div *cdkVirtualFor="let country of listOfCountries">
-      <mat-list-option [value]=" country" #country
-        [disabled]="countriesList.selectedOptions.selected.length > 3 && !country.selected">
-        {{country.name}}
-      </mat-list-option>
+<div class="content">
+  <div class="info">
+    <div class="info" *ngIf="isSelected">
+      <p>Most populated country is: <b>{{mostPopulatedCountry.name}}</b> with <b>{{mostPopulatedCountry.population}}</b>
+        inhabitants.
+      </p>
+      <p>Least populated country is: <b>{{leastPopulatedCountry.name}}</b> with
+        <b>{{leastPopulatedCountry.population}}</b> inhabitants.
+      </p>
+      <p>Difference of population is: <b>{{differenceOfPopulation}}</b> inhabitants.</p>
     </div>
-  </cdk-virtual-scroll-viewport>
-</mat-selection-list>
+  </div>
+
+  <div class="list">
+    <mat-selection-list #countriesList [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+      <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 400px; width: 400px;">
+        <div *cdkVirtualFor="let country of listOfCountries">
+          <mat-list-option [value]=" country" #country
+            [disabled]="countriesList.selectedOptions.selected.length > 3 && !country.selected">
+            {{country.name}}
+          </mat-list-option>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </mat-selection-list>
+    <button mat-raised-button color="primary" (click)="compareCountries()">Compare</button>
+  </div>
+</div>
