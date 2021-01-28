@@ -1,1 +1,10 @@
-<p>dashboard works!</p>
+<mat-selection-list #countriesList [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+  <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 400px; width: 400px;">
+    <div *cdkVirtualFor="let country of listOfCountries">
+      <mat-list-option [value]=" country" #country
+        [disabled]="countriesList.selectedOptions.selected.length > 3 && !country.selected">
+        {{country.name}}
+      </mat-list-option>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</mat-selection-list>
