@@ -4,14 +4,16 @@
     <input matInput name="search" [(ngModel)]="searchText" autocomplete="off" />
   </mat-form-field>
 </form>
+
 <div *ngIf="(listOfCountries | search: searchText)?.length === 0">
   <p>No Results Found!</p>
 </div>
+
 <mat-selection-list #countriesList [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
-  <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 400px; width: 400px;">
+  <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 350px; width: 400px;">
     <div *cdkVirtualFor="let country of listOfCountries | search: searchText">
-      <mat-list-option [value]=" country" #country
-        [disabled]="countriesList.selectedOptions.selected.length > 3 && !country.selected">
+      <mat-list-option [value]="country" #countryOption
+        [disabled]="countriesList.selectedOptions.selected.length > 3 && !countryOption.selected">
         {{country.name}}
       </mat-list-option>
     </div>

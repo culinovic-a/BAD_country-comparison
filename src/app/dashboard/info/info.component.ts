@@ -12,7 +12,7 @@ import { DataService } from '../../core/services/data.service';
 export class InfoComponent implements OnInit, OnDestroy {
 
   selectedCountriesList: any;
-  isSelected = false;
+  dataReceived = false;
   public mostPopulatedCountry: any;
   public leastPopulatedCountry: any;
   public differenceOfPopulation: any;
@@ -23,8 +23,9 @@ export class InfoComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.dataService.selectedCountries.subscribe((data) => {
+      this.selectedCountriesList = [];
       this.selectedCountriesList = data;
-      this.isSelected = true;
+      this.dataReceived = true;
 
       // FIND MOST POPULATED COUNTRY
       this.mostPopulatedCountry = this.selectedCountriesList.reduce((prev: { population: number; }, current: { population: number; }) => {

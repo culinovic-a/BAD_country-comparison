@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // SERVICES
@@ -10,7 +10,7 @@ import { DataService } from '../../core/services/data.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
   listOfCountries: any = [];
   private subscription: Subscription;
@@ -33,7 +33,6 @@ export class ListComponent implements OnInit {
   // GET ALL CHECKED CHECKBOXES
   onNgModelChange($event): void {
     this.selectedOption = $event;
-
     this.isSelected = false;
     localStorage.setItem('isSelected', 'false');
   }

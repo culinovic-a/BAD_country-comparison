@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" #myform="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput type="text">
+      <mat-error *ngIf="loginForm.get('username').hasError('required') && myform.submitted">Username is requied!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" matInput type="password">
+      <mat-error *ngIf="loginForm.get('password').hasError('required') && myform.submitted">Password is required!
+      </mat-error>
+    </mat-form-field>
+    <mat-error *ngIf="showErrorMessage">Invalid Credentials!
+    </mat-error>
+    <button mat-raised-button type="submit" color="accent">Login</button>
+  </form>
+</div>
