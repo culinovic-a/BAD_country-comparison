@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { InfoComponent } from './info/info.component';
+import { ChartComponent } from './chart/chart.component';
+import { ListComponent } from './list/list.component';
 
 // ANGULAR MATERIAL
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -23,7 +26,7 @@ import { SearchPipe } from '../core/pipes/search.pipe';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
-  declarations: [DashboardComponent, SearchPipe],
+  declarations: [DashboardComponent, SearchPipe, InfoComponent, ChartComponent, ListComponent],
   imports: [
     CommonModule,
     FormsModule,

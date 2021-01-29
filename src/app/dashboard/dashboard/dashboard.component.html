@@ -1,44 +1,13 @@
 <div class="content">
   <div class="info">
-    <div class="info" *ngIf="isSelected">
-      <p>Most populated country is: <b>{{mostPopulatedCountry.name}}</b> with <b>{{mostPopulatedCountry.population}}</b>
-        inhabitants.
-      </p>
-      <p>Least populated country is: <b>{{leastPopulatedCountry.name}}</b> with
-        <b>{{leastPopulatedCountry.population}}</b> inhabitants.
-      </p>
-      <p>Difference of population is: <b>{{differenceOfPopulation}}</b> inhabitants.</p>
-    </div>
+    <app-info></app-info>
   </div>
 
   <div class="list">
-    <form>
-      <mat-form-field>
-        <mat-label>Search Countries By Name</mat-label>
-        <input matInput name="search" [(ngModel)]="searchText" autocomplete="off" />
-      </mat-form-field>
-    </form>
-    <div *ngIf="(listOfCountries | search: searchText)?.length === 0">
-      <p>No Results Found!</p>
-    </div>
-    <mat-selection-list #countriesList [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
-      <cdk-virtual-scroll-viewport [itemSize]="50" style="height: 400px; width: 400px;">
-        <div *cdkVirtualFor="let country of listOfCountries | search: searchText">
-          <mat-list-option [value]=" country" #country
-            [disabled]="countriesList.selectedOptions.selected.length > 3 && !country.selected">
-            {{country.name}}
-          </mat-list-option>
-        </div>
-      </cdk-virtual-scroll-viewport>
-    </mat-selection-list>
-    <button mat-raised-button color="primary" (click)="compareCountries()">Compare</button>
+    <app-list></app-list>
   </div>
 </div>
 
-<div class="dashboard">
-  <div class="chart" *ngIf="isSelected">
-    <ngx-charts-bar-vertical [view]=" [1000,400]" [results]="newArr" [xAxisLabel]="'Count'" [legend]="true"
-      [showXAxisLabel]="true" [showYAxisLabel]="true" [xAxis]="true" [yAxis]="true" [gradient]="true">
-    </ngx-charts-bar-vertical>
-  </div>
+<div class="chartContent">
+  <app-chart></app-chart>
 </div>
