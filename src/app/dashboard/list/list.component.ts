@@ -16,7 +16,6 @@ export class ListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   selectedOptions = [];
   selectedOption;
-  isSelected: boolean;
   public searchText: '';
 
   constructor(private apiService: ApiService, private dataService: DataService) { }
@@ -33,15 +32,10 @@ export class ListComponent implements OnInit, OnDestroy {
   // GET ALL CHECKED CHECKBOXES
   onNgModelChange($event): void {
     this.selectedOption = $event;
-    this.isSelected = false;
-    localStorage.setItem('isSelected', 'false');
   }
 
   // COMPARE COUNTRIES
   compareCountries(): void {
-    this.isSelected = true;
-    localStorage.setItem('isSelected', 'true');
-
     // SEND SELECTED COUNTRIES TO SERVICE
     this.dataService.selectedCountries.next(this.selectedOption);
   }
